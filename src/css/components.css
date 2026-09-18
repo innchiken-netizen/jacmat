@@ -29,7 +29,7 @@
 .ticker-dot {
   width: 4px;
   height: 4px;
-  background-color: var(--color-accent);
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   display: inline-block;
 }
@@ -116,13 +116,13 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--color-accent);
+  background-color: var(--color-obsidian);
   transition: width var(--duration-base) var(--ease-out);
 }
 
 .nav-link:hover,
 .nav-link.is-active {
-  color: var(--color-accent);
+  color: var(--color-obsidian);
 }
 
 .nav-link:hover::after,
@@ -227,8 +227,9 @@
 }
 
 .cart-trigger-btn:hover {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
+  background: var(--color-white);
+  color: var(--color-obsidian);
+  border-color: var(--color-obsidian);
   transform: translateY(-1px);
 }
 
@@ -239,8 +240,8 @@
   min-width: 20px;
   height: 20px;
   padding: 0 6px;
-  background: var(--color-accent);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-obsidian);
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   font-weight: 800;
@@ -249,8 +250,8 @@
 }
 
 .cart-trigger-btn:hover .cart-badge {
-  background: var(--color-white);
-  color: var(--color-accent);
+  background: var(--color-obsidian);
+  color: var(--color-white);
 }
 
 .menu-toggle-btn {
@@ -378,24 +379,25 @@
 }
 
 .btn-primary:hover {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-obsidian);
+  border-color: var(--color-obsidian);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 .btn-accent {
-  background: var(--color-accent);
+  background: var(--color-obsidian);
   color: var(--color-white);
-  border: 1px solid var(--color-accent);
+  border: 1px solid var(--color-obsidian);
 }
 
 .btn-accent:hover {
-  background: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
+  background: var(--color-white);
+  color: var(--color-obsidian);
+  border-color: var(--color-obsidian);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px -6px rgba(220, 38, 38, 0.4);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
@@ -561,8 +563,9 @@
 }
 
 .badge-preorder {
-  background: var(--color-accent);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-obsidian);
+  border: 1px solid var(--color-obsidian);
 }
 
 .product-content {
@@ -596,7 +599,7 @@
 }
 
 .product-title a:hover {
-  color: var(--color-accent);
+  text-decoration: underline;
 }
 
 .product-bottom-row {
@@ -1060,7 +1063,7 @@
 .toast-icon {
   width: 18px;
   height: 18px;
-  color: var(--color-accent);
+  color: var(--color-white);
 }
 
 /* ==========================================================================
@@ -1133,7 +1136,7 @@
 }
 
 .footer-link:hover {
-  color: var(--color-accent);
+  color: var(--color-white);
 }
 
 .footer-bottom-row {

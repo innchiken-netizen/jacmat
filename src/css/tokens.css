@@ -1,26 +1,26 @@
 :root {
-  /* Brand Core Colors */
-  --color-obsidian: #09090b;
-  --color-obsidian-soft: #121216;
-  --color-obsidian-muted: #1c1c22;
+  /* Brand Core Colors — Strict Monochrome Black & White */
+  --color-obsidian: #000000;
+  --color-obsidian-soft: #111111;
+  --color-obsidian-muted: #222222;
   
   --color-white: #ffffff;
   --color-canvas: #f8f8f6;
-  --color-canvas-subtle: #f1f1ee;
+  --color-canvas-subtle: #f0f0ed;
   
-  --color-ink: #09090b;
-  --color-ink-inverted: #f8f8f6;
-  --color-muted: #64748b;
-  --color-muted-dark: #94a3b8;
+  --color-ink: #000000;
+  --color-ink-inverted: #ffffff;
+  --color-muted: #666666;
+  --color-muted-dark: #888888;
   
-  --color-border: #e2e8f0;
-  --color-border-subtle: #f1f5f9;
-  --color-border-dark: rgba(255, 255, 255, 0.12);
+  --color-border: #e2e2e2;
+  --color-border-subtle: #eeeeee;
+  --color-border-dark: rgba(255, 255, 255, 0.16);
   
-  /* Jacmat Signature Crimson (Matches authentic caps & prints) */
-  --color-accent: #dc2626;
-  --color-accent-hover: #b91c1c;
-  --color-accent-subtle: rgba(220, 38, 38, 0.08);
+  /* Brand Accent: Pure Obsidian Black */
+  --color-accent: #000000;
+  --color-accent-hover: #222222;
+  --color-accent-subtle: rgba(0, 0, 0, 0.05);
   --color-accent-ink: #ffffff;
   
   /* Conversion Colors */
@@ -28,8 +28,8 @@
   --color-whatsapp-hover: #1ebc57;
   --color-whatsapp-dark: #128c7e;
   
-  /* Typography */
-  --font-display: "Syne", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  /* Typography: Inter (Preserved from previous site) */
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   
   /* Type Scale */
@@ -42,7 +42,7 @@
   --text-3xl: clamp(1.85rem, 2.3vw, 2.25rem);
   --text-4xl: clamp(2.35rem, 3.4vw, 3.25rem);
   --text-5xl: clamp(3rem, 5.5vw, 5rem);
-  --text-display: clamp(3.5rem, 8vw, 7.5rem);
+  --text-display: clamp(3.5rem, 8vw, 7rem);
   
   /* Geometry & Spacing */
   --radius-xs: 3px;
@@ -60,7 +60,7 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 8px 24px -6px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, 0.14);
-  --shadow-glow: 0 0 30px rgba(220, 38, 38, 0.25);
+  --shadow-glow: 0 0 30px rgba(0, 0, 0, 0.12);
   
   /* Motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);

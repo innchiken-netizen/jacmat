@@ -64,8 +64,9 @@
 }
 
 .hero-title .title-accent {
-  color: var(--color-accent);
+  color: var(--color-white);
   display: block;
+  opacity: 0.9;
 }
 
 .hero-description {
@@ -202,7 +203,7 @@
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-muted);
 }
 
 .section-headline {
@@ -228,9 +229,9 @@
 }
 
 .section-header-cta:hover {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
-  transform: translateX(4px);
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+  transform: translateX(6px);
 }
 
 /* Story / Heritage Bento Grid */
@@ -351,7 +352,7 @@
   font-size: var(--text-base);
   font-weight: 800;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-white);
 }
 
 /* Concierge / WhatsApp Section */
