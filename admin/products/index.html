@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produits — Administration JACMAT STORE</title>
+  
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/css/admin.css">
+  <style>
+    /* Mobile cards view */
+    .admin-mobile-cards {
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px;
+    }
+    .admin-mobile-product-card {
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: var(--admin-radius);
+      padding: 14px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .admin-mobile-product-card img {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--admin-radius-sm);
+      object-fit: cover;
+    }
+    .admin-mobile-product-details {
+      flex: 1;
+      min-width: 0;
+    }
+    .admin-mobile-product-title {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--admin-text-main);
+    }
+    .admin-mobile-product-meta {
+      font-size: 12px;
+      color: var(--admin-text-muted);
+      margin: 2px 0 6px;
+    }
+    .admin-mobile-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .admin-table-wrapper {
+        display: none;
+      }
+      .admin-mobile-cards {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="admin-sidebar"></aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="admin-topbar-left">
+          <button type="button" id="admin-menu-toggle" class="admin-menu-toggle" aria-label="Menu mobile">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <span class="admin-topbar-title">Catalogue Produits</span>
+        </div>
+        <div class="admin-topbar-actions">
+          <a href="/admin/products/new" class="admin-btn admin-btn-primary admin-btn-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Ajouter un produit</span>
+          </a>
+        </div>
+      </header>
+
+      <main class="admin-content-view">
+        <div class="admin-panel">
+          <!-- Filters and Search Bar -->
+          <div class="admin-panel-header">
+            <div class="admin-filters-bar">
+              <div class="admin-search-box">
+                <svg class="admin-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="search" id="product-search-input" class="admin-search-input" placeholder="Rechercher par nom, slug..." autocomplete="off">
+              </div>
+
+              <select id="category-filter" class="admin-select">
+                <option value="all">Toutes les catégories</option>
+              </select>
+
+              <select id="status-filter" class="admin-select">
+                <option value="all">Tous les statuts</option>
+                <option value="published">Publiés</option>
+                <option value="draft">Brouillons</option>
+                <option value="soldout">Épuisés</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Desktop Table -->
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th style="width: 60px;">Visuel</th>
+                  <th>Produit</th>
+                  <th>Catégorie</th>
+                  <th>Prix</th>
+                  <th>Statut</th>
+                  <th>Stock</th>
+                  <th style="text-align: right;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="products-table-body">
+                <tr>
+                  <td colspan="7" style="text-align: center; padding: 40px; color: var(--admin-text-muted);">
+                    Chargement des produits...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile Cards View -->
+          <div class="admin-mobile-cards" id="products-mobile-cards"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal Dialog -->
+  <div class="admin-modal-backdrop" id="delete-modal">
+    <div class="admin-modal-content">
+      <h3 class="admin-modal-title">Supprimer le produit ?</h3>
+      <p style="color: var(--admin-text-muted); font-size: 14px; line-height: 1.5;">
+        Êtes-vous sûr de vouloir supprimer <strong id="delete-product-name" style="color: var(--admin-text-main);"></strong> ?<br>
+        Cette action est irréversible et retirera immédiatement cette pièce du catalogue.
+      </p>
+      <div class="admin-modal-actions">
+        <button type="button" class="admin-btn admin-btn-secondary" id="cancel-delete-btn">Annuler</button>
+        <button type="button" class="admin-btn admin-btn-danger" id="confirm-delete-btn">Supprimer définitivement</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/admin/products.js"></script>
+</body>
+</html>

@@ -1,0 +1,608 @@
+{
+  "products": [
+    {
+      "id": "prod_no-cap",
+      "name": "NO CAP",
+      "slug": "no-cap",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 20,
+      "salePrice": null,
+      "category": "accessories",
+      "images": [
+        "/images/nocap2.jpg",
+        "/images/nocap1.jpg",
+        "/images/nocap3.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-17T21:23:19.685Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_js",
+      "name": "JS",
+      "slug": "js",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 45.99,
+      "salePrice": null,
+      "category": "tops",
+      "images": [
+        "/images/chemise1.jpg",
+        "/images/chemise2.jpg",
+        "/images/chemise3.jpg",
+        "/images/chemise4.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-17T22:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_the-collection-1on1",
+      "name": "The collection : 1on1",
+      "slug": "the-collection-1on1",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 28.99,
+      "salePrice": null,
+      "category": "tops",
+      "images": [
+        "/images/1on1_0005_1on1.jpg",
+        "/images/1on1_0000_1on1.jpg",
+        "/images/1on1_0001_1on1.jpg",
+        "/images/1on1_0002_1on1.jpg",
+        "/images/1on1_0003_1on1.jpg",
+        "/images/1on1_0004_1on1.jpg",
+        "/images/1on1_0006_1on1.jpg",
+        "/images/1on1_0007_1on1.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-17T23:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_ss80",
+      "name": "SS80",
+      "slug": "ss80",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 45,
+      "salePrice": null,
+      "category": "tops",
+      "images": [
+        "/images/SS80.jpg",
+        "/images/SS801.jpg",
+        "/images/SS802.jpg",
+        "/images/SS803.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL",
+          "3XL"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T00:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_jacmat-x-the-cut-jacut-tee",
+      "name": "JACMAT x THE CUT (JACUT Tee)",
+      "slug": "jacmat-x-the-cut-jacut-tee",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 35,
+      "salePrice": null,
+      "category": "tops",
+      "images": [
+        "/images/jacut.jpg",
+        "/images/jacut 2.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ]
+      },
+      "soldOut": true,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T01:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_slippers-vpmlm",
+      "name": "SLIPPERS VPMLM",
+      "slug": "slippers-vpmlm",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 25,
+      "salePrice": null,
+      "category": "accessories",
+      "images": [
+        "/images/SLIPPERS.jpg",
+        "/images/crew.jpg",
+        "/images/crew2.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "39",
+          "41",
+          "43"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T02:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_anti-cold",
+      "name": "Anti-cold",
+      "slug": "anti-cold",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 15,
+      "salePrice": null,
+      "category": "tops",
+      "images": [
+        "/images/BONNET.jpg",
+        "/images/BONNET1.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T03:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_for-the-10s-only",
+      "name": "FOR THE 10s ONLY",
+      "slug": "for-the-10s-only",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 30,
+      "salePrice": null,
+      "category": "tops",
+      "images": [
+        "/images/for the 10s.jpg",
+        "/images/for the 10s1.jpg",
+        "/images/for the 10s2.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "S",
+          "M",
+          "L",
+          "XL",
+          "2XL"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T04:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_jacmat-slides",
+      "name": "JACMAT SLIDES",
+      "slug": "jacmat-slides",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 25,
+      "salePrice": null,
+      "category": "accessories",
+      "images": [
+        "/images/crew out.jpg",
+        "/images/crew2out.jpg",
+        "/images/crew3out.jpg",
+        "/images/crew4out.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "37",
+          "38",
+          "39",
+          "40",
+          "41",
+          "42",
+          "43",
+          "44",
+          "45"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T05:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_no-cap-v1",
+      "name": "NO CAP v1",
+      "slug": "no-cap-v1",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 15,
+      "salePrice": null,
+      "category": "accessories",
+      "images": [
+        "/images/CapREd.jpg",
+        "/images/CapBLack.jpg",
+        "/images/CapBEige.jpg"
+      ],
+      "variants": {
+        "Couleur": [
+          "Noir",
+          "Rouge",
+          "Beige"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T06:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_jic",
+      "name": "JIC",
+      "slug": "jic",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 10,
+      "salePrice": null,
+      "category": "accessories",
+      "images": [
+        "/images/JICRED.jpg",
+        "/images/JICBLACK.jpg"
+      ],
+      "variants": {
+        "Couleur": [
+          "Rouge",
+          "Noir"
+        ],
+        "Modèle": [
+          "7Plus",
+          "8",
+          "8Plus",
+          "X",
+          "XS",
+          "XS Max",
+          "XR",
+          "11",
+          "11 Pro",
+          "11 Pro Max",
+          "12 mini",
+          "12",
+          "12 Pro",
+          "12 Pro Max",
+          "13 mini",
+          "13",
+          "13 Pro",
+          "13 Pro Max",
+          "14",
+          "14 Plus",
+          "14 Pro",
+          "14 Pro Max",
+          "15",
+          "15 Plus",
+          "15 Pro",
+          "15 Pro Max"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T07:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_top-s",
+      "name": "TOP S",
+      "slug": "top-s",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 35,
+      "salePrice": null,
+      "category": "tops",
+      "images": [
+        "/images/chemise blue.png",
+        "/images/chemise blue 2.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "XS",
+          "S",
+          "M",
+          "L"
+        ]
+      },
+      "soldOut": true,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T08:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_top-s-rouge",
+      "name": "TOP S ROUGE",
+      "slug": "top-s-rouge",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 35,
+      "salePrice": null,
+      "category": "tops",
+      "images": [
+        "/images/chemise red.png",
+        "/images/chemise red 1.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "XS",
+          "S",
+          "M",
+          "L"
+        ]
+      },
+      "soldOut": true,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T09:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_no-cap-v2",
+      "name": "NO CAP v2",
+      "slug": "no-cap-v2",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 15,
+      "salePrice": null,
+      "category": "accessories",
+      "images": [
+        "/images/CapBLack V2.jpg",
+        "/images/CapWHite V2.jpg"
+      ],
+      "variants": {
+        "Couleur": [
+          "Noir",
+          "Gris"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T10:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_t-shirt-code-barres",
+      "name": "T-SHIRT CODE-BARRES",
+      "slug": "t-shirt-code-barres",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 20,
+      "salePrice": null,
+      "category": "tops",
+      "images": [
+        "/images/T-SHIRTCODE-BARRES.jpg",
+        "/images/T-SHIRTCODE-BARRES1.jpg",
+        "/images/T-SHIRTCODE-BARRES2.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "M",
+          "XL"
+        ],
+        "Couleur": [
+          "Blanc",
+          "Bleu"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T11:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_pull-over-code-barres",
+      "name": "PULL-OVER CODE-BARRES",
+      "slug": "pull-over-code-barres",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 40,
+      "salePrice": null,
+      "category": "outerwear",
+      "images": [
+        "/images/PULL-OVER.jpg",
+        "/images/PULL-OVER1.jpg",
+        "/images/PULL-OVER2.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "XL",
+          "2XL"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T12:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_winter-blazer",
+      "name": "Winter Blazer",
+      "slug": "winter-blazer",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 45,
+      "salePrice": null,
+      "category": "outerwear",
+      "images": [
+        "/images/tshirt1.jpg",
+        "/images/tshirt1_1.jpg",
+        "/images/tshirt1_2.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "S",
+          "M",
+          "XL"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T13:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_take-over-the-world",
+      "name": "Take Over the World",
+      "slug": "take-over-the-world",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 30,
+      "salePrice": null,
+      "category": "tops",
+      "images": [
+        "/images/HOODIE.jpg",
+        "/images/HOODIE_1.jpg",
+        "/images/HOODIE_2.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "S",
+          "M",
+          "XL"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T14:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_n-ki-collection",
+      "name": "N-Ki Collection",
+      "slug": "n-ki-collection",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 20,
+      "salePrice": null,
+      "category": "tops",
+      "images": [
+        "/images/tshirt2.jpg",
+        "/images/tshirt2_1.jpg",
+        "/images/tshirt2_2.jpg",
+        "/images/tshirt2_3.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "S",
+          "M",
+          "XL"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T15:23:19.686Z",
+      "updatedAt": "2026-09-18T17:23:19.686Z"
+    },
+    {
+      "id": "prod_socks-up",
+      "name": "SOCKS UP",
+      "slug": "socks-up",
+      "description": "Pièce exclusive Jacmat Store. Coupe streetwear soignée, finitions haut de gamme et confection résistante.",
+      "price": 8,
+      "salePrice": null,
+      "category": "accessories",
+      "images": [
+        "/images/sucks1.jpg",
+        "/images/sucks.jpg",
+        "/images/sucks2.jpg"
+      ],
+      "variants": {
+        "Taille": [
+          "39",
+          "41",
+          "43"
+        ]
+      },
+      "soldOut": false,
+      "preOrder": false,
+      "status": "published",
+      "createdAt": "2026-09-18T16:23:19.687Z",
+      "updatedAt": "2026-09-18T17:23:19.687Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "tops",
+      "name": "Tops & T-Shirts",
+      "slug": "tops",
+      "description": "T-shirts, maillots et hauts Jacmat"
+    },
+    {
+      "id": "outerwear",
+      "name": "Outerwear & Sweats",
+      "slug": "outerwear",
+      "description": "Sweats à capuche, pulls et vestes"
+    },
+    {
+      "id": "accessories",
+      "name": "Accessoires & Casquettes",
+      "slug": "accessories",
+      "description": "Casquettes, bonnets, claquettes et accessoires"
+    }
+  ],
+  "settings": {
+    "storeName": "JACMAT STORE",
+    "slogan": "BE YOU & WEAR US",
+    "whatsappPhone": "243823207915",
+    "contactEmail": "contact@jacmat.store",
+    "currency": "$",
+    "maintenanceMode": false
+  }
+}

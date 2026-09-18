@@ -22,6 +22,6 @@ export const CONFIG = {
   STORAGE_CART_KEY: "jacmat_cart_items_v2",
   STORAGE_POPUP_KEY: "jacmat_marketing_popup_dismissed",
   
-  // Products Endpoint
-  PRODUCTS_URL: "/products.json"
+  // Products Endpoint (API with fallback)
+  PRODUCTS_URL: "/api/products"
 };

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catégories — Administration JACMAT STORE</title>
+  
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="admin-sidebar"></aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="admin-topbar-left">
+          <button type="button" id="admin-menu-toggle" class="admin-menu-toggle" aria-label="Menu mobile">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <span class="admin-topbar-title">Gestion des Catégories</span>
+        </div>
+      </header>
+
+      <main class="admin-content-view">
+        <div class="admin-form-grid">
+          
+          <!-- Left Column: Category List -->
+          <div class="admin-form-col-main">
+            <div class="admin-panel">
+              <div class="admin-panel-header">
+                <h2 class="admin-panel-title">Rayons & Catégories actifs</h2>
+              </div>
+
+              <div class="admin-table-wrapper">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Slug URL</th>
+                      <th>Description</th>
+                      <th>Articles</th>
+                      <th style="text-align: right;">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="categories-table-body">
+                    <tr>
+                      <td colspan="5" style="text-align: center; padding: 32px; color: var(--admin-text-muted);">
+                        Chargement des catégories...
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Add Category Form -->
+          <div class="admin-form-col-side">
+            <div class="admin-form-card">
+              <h3 style="font-size: 16px; font-weight: 700;">Ajouter une catégorie</h3>
+              
+              <form id="add-category-form" novalidate>
+                <div class="admin-form-group" style="margin-bottom: 14px;">
+                  <label for="cat-name" class="admin-label">Nom de la catégorie *</label>
+                  <input type="text" id="cat-name" class="admin-input" placeholder="ex: Pantalons & Cargos" required>
+                </div>
+
+                <div class="admin-form-group" style="margin-bottom: 14px;">
+                  <label for="cat-slug" class="admin-label">Slug URL</label>
+                  <input type="text" id="cat-slug" class="admin-input" placeholder="ex: pantalons-cargos">
+                  <span class="admin-help-text">Généré automatiquement si laissé vide.</span>
+                </div>
+
+                <div class="admin-form-group" style="margin-bottom: 20px;">
+                  <label for="cat-desc" class="admin-label">Description (optionnelle)</label>
+                  <textarea id="cat-desc" class="admin-textarea" rows="3" placeholder="Présentation courte du rayon..."></textarea>
+                </div>
+
+                <button type="submit" id="add-category-btn" class="admin-btn admin-btn-primary" style="width: 100%;">
+                  Créer la catégorie
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/admin/categories.js"></script>
+</body>
+</html>

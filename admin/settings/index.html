@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paramètres — Administration JACMAT STORE</title>
+  
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <div class="admin-layout">
+    <aside class="admin-sidebar" id="admin-sidebar"></aside>
+
+    <div class="admin-main">
+      <header class="admin-topbar">
+        <div class="admin-topbar-left">
+          <button type="button" id="admin-menu-toggle" class="admin-menu-toggle" aria-label="Menu mobile">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <span class="admin-topbar-title">Paramètres de la Boutique</span>
+        </div>
+      </header>
+
+      <main class="admin-content-view">
+        <div class="admin-form-grid">
+          
+          <!-- Left Column: Business Settings -->
+          <div class="admin-form-col-main">
+            <div class="admin-form-card">
+              <h3 style="font-size: 16px; font-weight: 700;">Informations publiques</h3>
+              <p class="admin-help-text">Coordonnées affichées aux clients pour les commandes et le support.</p>
+
+              <form id="settings-form" novalidate>
+                <div class="admin-form-group" style="margin-bottom: 14px;">
+                  <label for="set-store-name" class="admin-label">Nom de la marque / Boutique</label>
+                  <input type="text" id="set-store-name" class="admin-input" placeholder="JACMAT STORE" required>
+                </div>
+
+                <div class="admin-form-group" style="margin-bottom: 14px;">
+                  <label for="set-slogan" class="admin-label">Slogan officiel</label>
+                  <input type="text" id="set-slogan" class="admin-input" placeholder="BE YOU & WEAR US">
+                </div>
+
+                <div class="admin-form-group" style="margin-bottom: 14px;">
+                  <label for="set-whatsapp" class="admin-label">Numéro WhatsApp Conciergerie (international)</label>
+                  <input type="text" id="set-whatsapp" class="admin-input" placeholder="243823207915" required>
+                  <span class="admin-help-text">Format sans le signe +, ex: 243823207915 pour la RDC.</span>
+                </div>
+
+                <div class="admin-form-group" style="margin-bottom: 24px;">
+                  <label for="set-email" class="admin-label">Email de contact public</label>
+                  <input type="email" id="set-email" class="admin-input" placeholder="contact@jacmat.store">
+                </div>
+
+                <button type="submit" id="save-settings-btn" class="admin-btn admin-btn-primary">
+                  Enregistrer les paramètres
+                </button>
+              </form>
+            </div>
+
+            <!-- Password Change Instructions Card -->
+            <div class="admin-form-card">
+              <h3 style="font-size: 16px; font-weight: 700;">Sécurité & Modification du mot de passe</h3>
+              <p class="admin-help-text" style="line-height: 1.6;">
+                Pour des raisons de haute sécurité, le mot de passe administrateur n'est jamais stocké en clair et ne transite pas par une interface non sécurisée.<br><br>
+                Pour modifier votre mot de passe administrateur :
+              </p>
+              <ol style="margin-left: 20px; font-size: 13.5px; color: var(--admin-text-main); display: flex; flex-direction: column; gap: 8px; margin-top: 8px;">
+                <li>Exécutez dans votre terminal local : <code style="background: #f4f4f5; padding: 2px 6px; border-radius: 4px;">npm run admin:hash-password</code></li>
+                <li>Tapez votre nouveau mot de passe.</li>
+                <li>Copiez la chaîne de hachage générée dans votre fichier <code style="background: #f4f4f5; padding: 2px 6px; border-radius: 4px;">.env.local</code> (ou dans vos variables d'environnement Vercel) sous la clé <code style="background: #f4f4f5; padding: 2px 6px; border-radius: 4px;">ADMIN_PASSWORD_HASH</code>.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Right Column: System Status -->
+          <div class="admin-form-col-side">
+            <div class="admin-form-card">
+              <h3 style="font-size: 16px; font-weight: 700;">Environnement & Système</h3>
+              
+              <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 8px;">
+                <div>
+                  <div style="font-size: 11.5px; color: var(--admin-text-muted); text-transform: uppercase; font-weight: 600;">Stockage des données</div>
+                  <div style="font-weight: 600; font-size: 13.5px; margin-top: 2px;" id="sys-db-status">PostgreSQL / Local Store</div>
+                </div>
+
+                <div>
+                  <div style="font-size: 11.5px; color: var(--admin-text-muted); text-transform: uppercase; font-weight: 600;">Sessions sécurisées</div>
+                  <div style="font-weight: 600; font-size: 13.5px; margin-top: 2px;">JWT signé (jose) • Cookie httpOnly (10h)</div>
+                </div>
+
+                <div>
+                  <div style="font-size: 11.5px; color: var(--admin-text-muted); text-transform: uppercase; font-weight: 600;">Version</div>
+                  <div style="font-weight: 600; font-size: 13.5px; margin-top: 2px;">Jacmat Store v2.0.0 (Production Ready)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/admin/settings.js"></script>
+</body>
+</html>

@@ -18,7 +18,7 @@ export async function initProductPage() {
     return;
   }
 
-  const product = products.find((p) => slugify(p.name) === slug) || products[0];
+  const product = products.find((p) => p.id === slug || p.slug === slug || slugify(p.name) === slug) || products[0];
 
   document.title = `${product.name} — JACMAT STORE`;
 

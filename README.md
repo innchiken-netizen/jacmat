@@ -120,7 +120,86 @@ Le fichier `vercel.json` gère automatiquement :
 
 ---
 
-## 8. Structure des Dossiers
+## 8. Administration & Gestion Sécurisée (Admin Setup)
+
+La boutique Jacmat intègre un espace d'administration privé permettant au propriétaire de gérer le catalogue en ligne (création, modification, suppression, statuts, catégories, photos) sans toucher au code source.
+
+### Architecture de Sécurité
+- **Authentification 100% côté serveur** : Aucune donnée sensible ou vérification n'est stockée dans le navigateur (`localStorage` banni pour l'authentification).
+- **Mots de passe hachés** : Algorithme `bcrypt` (coût 12). Le mot de passe en clair n'est jamais stocké.
+- **Sessions signées** : Jeton JWT cryptographique signé avec `jose` (HS256) transmis via cookie `httpOnly`, `SameSite: Lax`, valide 10 heures.
+- **Protection Brute-Force** : Limitation automatique du nombre de tentatives échouées par adresse IP.
+- **Sécurité SEO** : En-têtes et balises `noindex, nofollow` sur toutes les routes d'administration.
+
+---
+
+### Configuration en Développement Local
+
+1. **Copier le fichier d'environnement :**
+   ```bash
+   cp .env.example .env.local
+   ```
+2. **Générer une clé de session `SESSION_SECRET` :**
+   Exécutez dans votre terminal :
+   ```bash
+   node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+   ```
+   Copiez le résultat dans `.env.local` pour `SESSION_SECRET=`.
+
+3. **Générer le hachage du mot de passe admin :**
+   Exécutez l'utilitaire interactif :
+   ```bash
+   npm run admin:hash-password
+   ```
+   Entrez votre mot de passe secret. Copiez la valeur retournée dans `.env.local` pour `ADMIN_PASSWORD_HASH=`.
+
+4. **Définir l'email administrateur dans `.env.local` :**
+   ```env
+   ADMIN_EMAIL=admin@jacmat.store
+   ```
+
+5. **Lancer le serveur de développement :**
+   ```bash
+   npm run dev
+   ```
+
+6. **Accéder à l'interface d'administration :**
+   Ouvrez votre navigateur sur : [http://localhost:5173/admin/login](http://localhost:5173/admin/login)
+
+---
+
+### Déploiement sur Vercel
+
+Sur Vercel, ajoutez ces variables dans :  
+**Project Settings → Environment Variables**
+
+| Variable | Description | Requis |
+|---|---|---|
+| `ADMIN_EMAIL` | Adresse email de connexion de l'administrateur | **Oui** |
+| `ADMIN_PASSWORD_HASH` | Hachage bcrypt généré via `npm run admin:hash-password` | **Oui** |
+| `SESSION_SECRET` | Clé secrète aléatoire de 32+ caractères pour signer les cookies | **Oui** |
+| `DATABASE_URL` | Chaîne de connexion PostgreSQL (Neon, Supabase PostgreSQL, etc.) | **Recommandé** |
+| `BLOB_READ_WRITE_TOKEN` | Token Vercel Blob pour le stockage des photos téléversées | Optionnel |
+
+> **Note sur la persistance** :  
+> En local, si `DATABASE_URL` n'est pas défini, le système utilise automatiquement un stockage persistant local (`data/store.json`).  
+> Pour Vercel, connectez une base de données PostgreSQL gratuite (par exemple un projet [Neon](https://neon.tech/)) en renseignant `DATABASE_URL`. Le schéma et les tables se créent automatiquement au premier lancement.
+
+---
+
+### Routes d'Administration
+
+- `/admin/login` : Page de connexion sécurisée
+- `/admin` : Tableau de bord avec indicateurs réels (total, publiés, brouillons, ruptures, catégories)
+- `/admin/products` : Catalogue des produits, recherche, filtres et actions rapides
+- `/admin/products/new` : Formulaire de création de produit avec génération automatique de slug
+- `/admin/products/edit?id=...` : Modification d'un produit existant
+- `/admin/categories` : Gestion des rayons et contrôle d'intégrité avant suppression
+- `/admin/settings` : Paramètres publics de la marque (WhatsApp, nom, email)
+
+---
+
+## 9. Structure des Dossiers
 
 ```
 jacmat/
@@ -174,7 +253,7 @@ jacmat/
 
 ---
 
-## 9. Licence & Droits
+## 10. Licence & Droits
 
 Tous droits réservés &copy; 2026 **JACMAT STORE**.  
 *BE YOU & WEAR US.*

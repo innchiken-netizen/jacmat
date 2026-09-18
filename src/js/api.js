@@ -17,9 +17,21 @@ export async function fetchProducts() {
   if (cachedProducts) return cachedProducts;
 
   try {
-    const res = await fetch(`${CONFIG.PRODUCTS_URL}?v=${Date.now()}`);
-    if (!res.ok) throw new Error(`HTTP error ${res.status}`);
-    const data = await res.json();
+    let data = null;
+    try {
+      const res = await fetch(`${CONFIG.PRODUCTS_URL}?v=${Date.now()}`);
+      if (res.ok) {
+        data = await res.json();
+      }
+    } catch {
+      // Fallback to static products.json if API is unavailable
+    }
+
+    if (!data || !Array.isArray(data)) {
+      const fallbackRes = await fetch(`/products.json?v=${Date.now()}`);
+      if (!fallbackRes.ok) throw new Error(`Fallback HTTP error ${fallbackRes.status}`);
+      data = await fallbackRes.json();
+    }
     
     // Normalize all image paths with leading slash
     data.forEach((p) => {
@@ -68,7 +80,8 @@ export function formatPrice(value) {
  * Categorize product by keywords
  */
 export function getProductCategory(product) {
-  const name = normalizeText(product.name);
+  if (product && product.category) return product.category;
+  const name = normalizeText(product ? product.name : "");
   if (/(cap|bonnet|slide|slipper|sock|jic)/.test(name)) return "accessories";
   if (/(hoodie|pull|blazer|winter|crew)/.test(name)) return "outerwear";
   return "tops";
@@ -81,7 +94,8 @@ export function getProductCategoryLabel(product) {
   const cat = getProductCategory(product);
   if (cat === "accessories") return "Accessoire";
   if (cat === "outerwear") return "Outerwear";
-  return "Top & T-Shirt";
+  if (cat === "tops") return "Top & T-Shirt";
+  return cat.charAt(0).toUpperCase() + cat.slice(1);
 }
 
 /**

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion Administration — JACMAT STORE</title>
+  
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/css/admin.css">
+  <style>
+    .admin-login-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background-color: var(--admin-bg);
+    }
+    .admin-login-card {
+      width: 100%;
+      max-width: 420px;
+      background: #ffffff;
+      border: 1px solid var(--admin-border);
+      border-radius: var(--admin-radius-lg);
+      padding: 36px 32px;
+      box-shadow: var(--admin-shadow-lg);
+    }
+    .admin-login-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .admin-login-header img {
+      height: 38px;
+      width: auto;
+      margin-bottom: 16px;
+    }
+    .admin-login-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--admin-text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .admin-login-subtitle {
+      font-size: 13px;
+      color: var(--admin-text-muted);
+      margin-top: 6px;
+    }
+    .admin-error-box {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+      padding: 10px 14px;
+      border-radius: var(--admin-radius);
+      font-size: 13px;
+      margin-bottom: 20px;
+      display: none;
+      align-items: center;
+      gap: 8px;
+    }
+    .password-input-group {
+      position: relative;
+    }
+    .password-toggle-btn {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--admin-text-muted);
+      cursor: pointer;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .password-toggle-btn:hover {
+      color: var(--admin-text-main);
+    }
+    .admin-login-footer {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--admin-text-light);
+    }
+    .admin-login-footer a {
+      color: var(--admin-text-muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .admin-login-footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="admin-body">
+
+  <div class="admin-login-wrapper">
+    <div class="admin-login-card">
+      <div class="admin-login-header">
+        <a href="/" aria-label="JACMAT STORE">
+          <img src="/logo.png" alt="Jacmat Store">
+        </a>
+        <h1 class="admin-login-title">Administration</h1>
+        <p class="admin-login-subtitle">Connectez-vous pour gérer la boutique Jacmat.</p>
+      </div>
+
+      <div id="admin-error-box" class="admin-error-box" role="alert">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <span id="admin-error-message">Email ou mot de passe incorrect.</span>
+      </div>
+
+      <form id="admin-login-form" novalidate>
+        <div class="admin-form-group" style="margin-bottom: 18px;">
+          <label for="admin-email" class="admin-label">Adresse Email</label>
+          <input 
+            type="email" 
+            id="admin-email" 
+            name="email" 
+            class="admin-input" 
+            placeholder="admin@jacmat.store" 
+            required 
+            autocomplete="username" 
+            autofocus
+          >
+        </div>
+
+        <div class="admin-form-group" style="margin-bottom: 24px;">
+          <label for="admin-password" class="admin-label">Mot de passe</label>
+          <div class="password-input-group">
+            <input 
+              type="password" 
+              id="admin-password" 
+              name="password" 
+              class="admin-input" 
+              placeholder="••••••••••••" 
+              required 
+              autocomplete="current-password"
+            >
+            <button type="button" id="password-toggle-btn" class="password-toggle-btn" aria-label="Afficher/masquer le mot de passe">
+              <svg id="eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" id="admin-submit-btn" class="admin-btn admin-btn-primary" style="width: 100%; height: 44px;">
+          <span id="btn-text">Se connecter</span>
+          <span id="btn-spinner" style="display: none;">Connexion en cours...</span>
+        </button>
+      </form>
+
+      <div class="admin-login-footer">
+        <a href="/">← Retour au site public</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/admin/login.js"></script>
+</body>
+</html>

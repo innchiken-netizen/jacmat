@@ -2,7 +2,25 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/admin", "destination": "/admin/index.html" },
+    { "source": "/admin/login", "destination": "/admin/login.html" },
+    { "source": "/admin/products", "destination": "/admin/products/index.html" },
+    { "source": "/admin/products/new", "destination": "/admin/products/new.html" },
+    { "source": "/admin/products/edit", "destination": "/admin/products/edit.html" },
+    { "source": "/admin/categories", "destination": "/admin/categories/index.html" },
+    { "source": "/admin/settings", "destination": "/admin/settings/index.html" }
+  ],
   "headers": [
+    {
+      "source": "/admin/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
