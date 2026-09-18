@@ -1,0 +1,403 @@
+[
+    
+    {
+        "name": "NO CAP",
+        "price": 20,
+        "images": [
+            "images/nocap2.jpg",
+            "images/nocap1.jpg",
+            "images/nocap3.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL",
+                "3XL"
+            ]
+        }
+    },
+    {
+        "name": "JS",
+        "price": 45.99,
+        "images": [
+            "images/chemise1.jpg",
+            "images/chemise2.jpg",
+            "images/chemise3.jpg",
+            "images/chemise4.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL",
+                "3XL"
+            ]
+        }
+    },
+    {
+        "name": "The collection : 1on1",
+        "price": 28.99,
+        "images": [
+            "images/1on1_0005_1on1.jpg",
+            "images/1on1_0000_1on1.jpg",
+            "images/1on1_0001_1on1.jpg",
+            "images/1on1_0002_1on1.jpg",
+            "images/1on1_0003_1on1.jpg",
+            "images/1on1_0004_1on1.jpg",
+            "images/1on1_0006_1on1.jpg",
+            "images/1on1_0007_1on1.jpg"
+        ],
+        "soldOut": false,
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL"
+            ]
+        }
+    },
+    {
+        "name": "SS80",
+        "price": 45,
+        "images": [
+            "images/SS80.jpg",
+            "images/SS801.jpg",
+            "images/SS802.jpg",
+            "images/SS803.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL",
+                "3XL"
+            ]
+        }
+    },
+    {
+        "name": "JACMAT x THE CUT (JACUT Tee)",
+        "price": 35,
+        "images": [
+            "images/jacut.jpg",
+            "images/jacut 2.jpg"
+        ],
+        "soldOut": true,
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL"
+            ]
+        }
+    },
+    {
+        "name": "SLIPPERS VPMLM",
+        "price": 25,
+        "images": [
+            "images/SLIPPERS.jpg",
+            "images/crew.jpg",
+            "images/crew2.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "39",
+                "41",
+                "43"
+            ]
+        }
+    },
+    {
+        "name": "Anti-cold",
+        "price": 15,
+        "images": [
+            "images/BONNET.jpg",
+            "images/BONNET1.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL"
+            ]
+        }
+    },
+    {
+        "name": "FOR THE 10s ONLY",
+        "price": 30,
+        "images": [
+            "images/for the 10s.jpg",
+            "images/for the 10s1.jpg",
+            "images/for the 10s2.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "2XL"
+            ]
+        }
+    },
+    {
+        "name": "JACMAT SLIDES",
+        "price": 25,
+        "images": [
+            "images/crew out.jpg",
+            "images/crew2out.jpg",
+            "images/crew3out.jpg",
+            "images/crew4out.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "37",
+                "38",
+                "39",
+                "40",
+                "41",
+                "42",
+                "43",
+                "44",
+                "45"
+            ]
+        }
+    },
+    {
+        "name": "NO CAP v1",
+        "price": 15,
+        "images": [
+            "images/CapREd.jpg",
+            "images/CapBLack.jpg",
+            "images/CapBEige.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Couleur": [
+                "Noir",
+                "Rouge",
+                "Beige"
+            ]
+        }
+    },
+    {
+        "name": "JIC",
+        "price": 10,
+        "images": [
+            "images/JICRED.jpg",
+            "images/JICBLACK.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Couleur": [
+                "Rouge",
+                "Noir"
+            ],
+            "Modèle": [
+                "7Plus",
+                "8",
+                "8Plus",
+                "X",
+                "XS",
+                "XS Max",
+                "XR",
+                "11",
+                "11 Pro",
+                "11 Pro Max",
+                "12 mini",
+                "12",
+                "12 Pro",
+                "12 Pro Max",
+                "13 mini",
+                "13",
+                "13 Pro",
+                "13 Pro Max",
+                "14",
+                "14 Plus",
+                "14 Pro",
+                "14 Pro Max",
+                "15",
+                "15 Plus",
+                "15 Pro",
+                "15 Pro Max"
+            ]
+        }
+    },
+    {
+        "name": "TOP S",
+        "price": 35,
+        "images": [
+            "images/chemise blue.png",
+            "images/chemise blue 2.jpg"
+        ],
+        "soldOut": true,
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "XS",
+                "S",
+                "M",
+                "L"
+            ]
+        }
+    },
+    {
+        "name": "TOP S ROUGE",
+        "price": 35,
+        "images": [
+            "images/chemise red.png",
+            "images/chemise red 1.jpg"
+        ],
+        "soldOut": true,
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "XS",
+                "S",
+                "M",
+                "L"
+            ]
+        }
+    },
+    {
+        "name": "NO CAP v2",
+        "price": 15,
+        "images": [
+            "images/CapBLack V2.jpg",
+            "images/CapWHite V2.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Couleur": [
+                "Noir",
+                "Gris"
+            ]
+        }
+    },
+    {
+        "name": "T-SHIRT CODE-BARRES",
+        "price": 20,
+        "images": [
+            "images/T-SHIRTCODE-BARRES.jpg",
+            "images/T-SHIRTCODE-BARRES1.jpg",
+            "images/T-SHIRTCODE-BARRES2.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "M",
+                "XL"
+            ],
+            "Couleur": [
+                "Blanc",
+                "Bleu"
+            ]
+        }
+    },
+    {
+        "name": "PULL-OVER CODE-BARRES",
+        "price": 40,
+        "images": [
+            "images/PULL-OVER.jpg",
+            "images/PULL-OVER1.jpg",
+            "images/PULL-OVER2.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "XL",
+                "2XL"
+            ]
+        }
+    },
+    {
+        "name": "Winter Blazer",
+        "price": 45,
+        "images": [
+            "images/tshirt1.jpg",
+            "images/tshirt1_1.jpg",
+            "images/tshirt1_2.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "S",
+                "M",
+                "XL"
+            ]
+        }
+    },
+    {
+        "name": "Take Over the World",
+        "price": 30,
+        "images": [
+            "images/HOODIE.jpg",
+            "images/HOODIE_1.jpg",
+            "images/HOODIE_2.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "S",
+                "M",
+                "XL"
+            ]
+        }
+    },
+    {
+        "name": "N-Ki Collection",
+        "price": 20,
+        "images": [
+            "images/tshirt2.jpg",
+            "images/tshirt2_1.jpg",
+            "images/tshirt2_2.jpg",
+            "images/tshirt2_3.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "S",
+                "M",
+                "XL"
+            ]
+        }
+    },
+    {
+        "name": "SOCKS UP",
+        "price": 8,
+        "images": [
+            "images/sucks1.jpg",
+            "images/sucks.jpg",
+            "images/sucks2.jpg"
+        ],
+        "isVariable": true,
+        "variants": {
+            "Taille": [
+                "39",
+                "41",
+                "43"
+            ]
+        }
+    }
+]

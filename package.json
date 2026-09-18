@@ -1,0 +1,15 @@
+{
+  "name": "jacmat-store",
+  "version": "2.0.0",
+  "description": "JACMAT STORE — Streetwear premium & drops exclusifs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}

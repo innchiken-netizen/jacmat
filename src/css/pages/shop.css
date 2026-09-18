@@ -1,0 +1,197 @@
+/* ==========================================================================
+   SHOP / CATALOG STYLES
+   ========================================================================== */
+.shop-hero {
+  background: var(--color-obsidian);
+  color: var(--color-white);
+  padding: clamp(48px, 6vw, 72px) var(--gutter);
+  border-bottom: 1px solid var(--color-obsidian-muted);
+}
+
+.shop-hero-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.shop-hero-title {
+  color: var(--color-white);
+  font-size: var(--text-4xl);
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.shop-hero-sub {
+  color: var(--color-muted-dark);
+  font-size: var(--text-base);
+  max-width: 580px;
+}
+
+/* Toolbar & Filters */
+.shop-toolbar-section {
+  position: sticky;
+  top: 71px;
+  z-index: 40;
+  background: rgba(248, 248, 246, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  padding: 14px var(--gutter);
+}
+
+.shop-toolbar-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (min-width: 860px) {
+  .shop-toolbar-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.category-filter-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.category-filter-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-chip {
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-white);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-ink);
+  white-space: nowrap;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.filter-chip:hover {
+  border-color: var(--color-obsidian);
+}
+
+.filter-chip.is-active {
+  background: var(--color-obsidian);
+  color: var(--color-white);
+  border-color: var(--color-obsidian);
+}
+
+.shop-controls-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.shop-search-wrapper {
+  position: relative;
+  flex-grow: 1;
+}
+
+@media (min-width: 860px) {
+  .shop-search-wrapper {
+    flex-grow: 0;
+    width: 240px;
+  }
+}
+
+.shop-search-input {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px 0 34px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  font-size: var(--text-xs);
+  color: var(--color-ink);
+}
+
+.shop-search-input:focus {
+  border-color: var(--color-obsidian);
+  outline: none;
+}
+
+.shop-search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  color: var(--color-muted);
+  pointer-events: none;
+}
+
+.sort-select {
+  height: 38px;
+  padding: 0 12px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.sort-select:focus {
+  border-color: var(--color-obsidian);
+  outline: none;
+}
+
+/* Catalog Grid Section */
+.catalog-section {
+  padding: clamp(32px, 5vw, 60px) var(--gutter);
+  min-height: 60vh;
+}
+
+.catalog-results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+}
+
+.catalog-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 16px;
+  padding: 80px 20px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.catalog-empty-state h3 {
+  font-size: var(--text-xl);
+}
+
+.catalog-empty-state p {
+  color: var(--color-muted);
+  max-width: 400px;
+}

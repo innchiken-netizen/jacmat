@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Merci pour votre commande — JACMAT STORE</title>
+  <meta name="description" content="Votre commande Jacmat Store a été bien reçue. Notre équipe vous contactera pour organiser la livraison.">
+  <meta name="theme-color" content="#09090b">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/css/main.css">
+</head>
+<body data-page="thanks" style="display: flex; flex-direction: column; min-height: 100vh;">
+
+  <!-- Header -->
+  <header style="padding: 24px var(--gutter); border-bottom: 1px solid var(--color-border); background: var(--color-white); text-align: center;">
+    <a href="/" aria-label="JACMAT STORE">
+      <img src="/logo.png" alt="Jacmat Store" width="130" height="50" style="margin: 0 auto;">
+    </a>
+  </header>
+
+  <main style="flex-grow: 1; display: flex; align-items: center; justify-content: center; padding: 48px var(--gutter);">
+    <div style="max-width: 580px; width: 100%; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: clamp(32px, 6vw, 56px); text-align: center; box-shadow: var(--shadow-md);">
+      
+      <!-- Green Checkmark Badge -->
+      <div style="width: 64px; height: 64px; border-radius: 50%; background: #dcfce7; color: #15803d; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <span class="section-eyebrow" style="display: block; margin-bottom: 8px;">Commande Enregistrée</span>
+      <h1 style="font-size: var(--text-3xl); font-weight: 900; text-transform: uppercase; margin-bottom: 16px;">Merci pour votre commande !</h1>
+      
+      <p style="color: var(--color-muted); font-size: var(--text-base); line-height: 1.6; margin-bottom: 28px;">
+        Nous avons bien reçu vos coordonnées. L'équipe <strong>Jacmat Store</strong> va vous contacter très rapidement sur WhatsApp ou par téléphone pour confirmer votre commande et organiser la livraison.
+      </p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="https://api.whatsapp.com/send?phone=243823207915&text=Bonjour%20Jacmat%2C%20je%20viens%20de%20passer%20une%20commande%20sur%20votre%20site" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-full">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.276-.1-.476-.15-.677.15-.2.3-.777.979-.953 1.18-.175.2-.351.225-.652.075-.3-.15-1.267-.467-2.413-1.488-.893-.795-1.496-1.777-1.672-2.078-.175-.3-.019-.462.131-.611.136-.134.301-.35.452-.525.15-.175.2-.3.301-.5.1-.2.05-.375-.025-.525-.075-.15-.677-1.632-.928-2.235-.245-.589-.494-.509-.677-.518-.175-.009-.376-.009-.577-.009-.2 0-.527.075-.802.375-.276.3-1.054 1.03-1.054 2.511s1.079 2.912 1.23 3.113c.15.2 2.122 3.24 5.14 4.544.718.31 1.278.495 1.716.634.72.229 1.375.197 1.894.12.578-.087 1.78-.727 2.031-1.428.251-.702.251-1.303.175-1.428-.075-.125-.275-.2-.576-.35z"/>
+          </svg>
+          Suivre ma commande sur WhatsApp
+        </a>
+        <a href="/shop" class="btn btn-primary btn-full">
+          Retourner à la boutique
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer style="background: var(--color-obsidian); color: var(--color-white); padding: 24px var(--gutter); text-align: center; font-size: var(--text-xs);">
+    <p>&copy; 2026 JACMAT STORE — BE YOU & WEAR US</p>
+  </footer>
+
+</body>
+</html>

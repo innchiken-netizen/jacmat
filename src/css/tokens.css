@@ -1,0 +1,79 @@
+:root {
+  /* Brand Core Colors */
+  --color-obsidian: #09090b;
+  --color-obsidian-soft: #121216;
+  --color-obsidian-muted: #1c1c22;
+  
+  --color-white: #ffffff;
+  --color-canvas: #f8f8f6;
+  --color-canvas-subtle: #f1f1ee;
+  
+  --color-ink: #09090b;
+  --color-ink-inverted: #f8f8f6;
+  --color-muted: #64748b;
+  --color-muted-dark: #94a3b8;
+  
+  --color-border: #e2e8f0;
+  --color-border-subtle: #f1f5f9;
+  --color-border-dark: rgba(255, 255, 255, 0.12);
+  
+  /* Jacmat Signature Crimson (Matches authentic caps & prints) */
+  --color-accent: #dc2626;
+  --color-accent-hover: #b91c1c;
+  --color-accent-subtle: rgba(220, 38, 38, 0.08);
+  --color-accent-ink: #ffffff;
+  
+  /* Conversion Colors */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1ebc57;
+  --color-whatsapp-dark: #128c7e;
+  
+  /* Typography */
+  --font-display: "Syne", "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Type Scale */
+  --text-xs: clamp(0.7rem, 0.75vw, 0.75rem);
+  --text-sm: clamp(0.8rem, 0.85vw, 0.875rem);
+  --text-base: clamp(0.925rem, 0.95vw, 1rem);
+  --text-lg: clamp(1.05rem, 1.15vw, 1.15rem);
+  --text-xl: clamp(1.2rem, 1.35vw, 1.35rem);
+  --text-2xl: clamp(1.45rem, 1.75vw, 1.75rem);
+  --text-3xl: clamp(1.85rem, 2.3vw, 2.25rem);
+  --text-4xl: clamp(2.35rem, 3.4vw, 3.25rem);
+  --text-5xl: clamp(3rem, 5.5vw, 5rem);
+  --text-display: clamp(3.5rem, 8vw, 7.5rem);
+  
+  /* Geometry & Spacing */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  --container-max: 1360px;
+  --container-narrow: 1080px;
+  --gutter: clamp(16px, 3.5vw, 40px);
+  
+  /* Refined Elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px -6px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 48px -12px rgba(0, 0, 0, 0.14);
+  --shadow-glow: 0 0 30px rgba(220, 38, 38, 0.25);
+  
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 180ms;
+  --duration-base: 280ms;
+  --duration-slow: 450ms;
+  
+  /* Z-Index Hierarchy */
+  --z-header: 50;
+  --z-drawer-backdrop: 90;
+  --z-drawer: 100;
+  --z-modal-backdrop: 110;
+  --z-modal: 120;
+  --z-toast: 150;
+}
