@@ -42,7 +42,7 @@
   --text-3xl: clamp(1.85rem, 2.3vw, 2.25rem);
   --text-4xl: clamp(2.35rem, 3.4vw, 3.25rem);
   --text-5xl: clamp(3rem, 5.5vw, 5rem);
-  --text-display: clamp(3.5rem, 8vw, 7rem);
+  --text-display: clamp(2.3rem, 11vw, 6.5rem);
   
   /* Geometry & Spacing */
   --radius-xs: 3px;

@@ -159,6 +159,20 @@
   outline: none;
 }
 
+@media (max-width: 480px) {
+  .shop-controls-group {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .shop-search-wrapper {
+    width: 100%;
+  }
+  .sort-select {
+    width: 100%;
+  }
+}
+
 /* Catalog Grid Section */
 .catalog-section {
   padding: clamp(32px, 5vw, 60px) var(--gutter);

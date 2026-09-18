@@ -139,6 +139,8 @@
   font-weight: 900;
   color: var(--color-ink);
   line-height: 1.1;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .product-page-price-row {

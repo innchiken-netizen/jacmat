@@ -77,6 +77,28 @@
   border-bottom: none;
 }
 
+@media (max-width: 540px) {
+  .cart-table-body {
+    padding: 8px 12px;
+  }
+  .cart-table-row {
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+  }
+  .cart-row-img {
+    width: 64px;
+    height: 64px;
+  }
+  .cart-row-actions {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    border-top: 1px dashed var(--color-border-subtle);
+  }
+}
+
 .cart-row-img {
   width: 80px;
   height: 80px;
