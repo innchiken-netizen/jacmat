@@ -51,11 +51,22 @@
 
                 <div class="admin-form-group">
                   <label for="prod-name" class="admin-label">Nom de la pièce *</label>
-                  <input type="text" id="prod-name" class="admin-input" placeholder="ex: SS80, NO CAP, Hoodie Oversize" required>
+                  <input type="text" id="prod-name" class="admin-input" placeholder="ex: SS80, NO CAP, Hoodie Oversize" required autofocus>
                 </div>
 
                 <div class="admin-form-group">
-                  <label for="prod-slug" class="admin-label">Identifiant URL (Slug) *</label>
+                  <label for="prod-sku" class="admin-label">Référence produit (SKU)</label>
+                  <div style="display: flex; gap: 8px;">
+                    <input type="text" id="prod-sku" class="admin-input" placeholder="ex: JAC-TOP-492" style="font-family: monospace; font-weight: 600;">
+                    <button type="button" id="generate-sku-btn" class="admin-btn admin-btn-secondary admin-btn-sm" style="white-space: nowrap;" title="Générer un code SKU">
+                      🔄 Générer
+                    </button>
+                  </div>
+                  <span class="admin-help-text">Généré automatiquement (ex: JAC-TOP-492). Vous n'avez pas besoin de le modifier.</span>
+                </div>
+
+                <div class="admin-form-group">
+                  <label for="prod-slug" class="admin-label">Identifiant URL (Slug)</label>
                   <input type="text" id="prod-slug" class="admin-input" placeholder="ex: ss80">
                   <span class="admin-help-text">Généré automatiquement à partir du nom. Utilisé pour l'URL publique : /product?p=slug</span>
                 </div>
@@ -150,15 +161,21 @@
 
               <!-- Organization Card -->
               <div class="admin-form-card">
-                <h3 style="font-size: 16px; font-weight: 700;">Organisation</h3>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                  <h3 style="font-size: 16px; font-weight: 700; margin: 0;">Organisation</h3>
+                  <button type="button" id="btn-open-quick-cat" class="admin-btn admin-btn-secondary admin-btn-sm" style="font-size: 11.5px; padding: 2px 9px; height: 26px; border-radius: 4px;">
+                    + Nouvelle catégorie
+                  </button>
+                </div>
 
                 <div class="admin-form-group">
-                  <label for="prod-category" class="admin-label">Catégorie</label>
+                  <label for="prod-category" class="admin-label">Catégorie *</label>
                   <select id="prod-category" class="admin-select" style="width: 100%;">
                     <option value="tops">Tops & T-Shirts</option>
                     <option value="outerwear">Outerwear & Sweats</option>
                     <option value="accessories">Accessoires & Casquettes</option>
                   </select>
+                  <span class="admin-help-text">Choisissez une catégorie ou créez-en une nouvelle en un clic.</span>
                 </div>
               </div>
 
@@ -187,6 +204,25 @@
         </form>
       </main>
     </div>
+    <!-- Quick Category Creation Modal -->
+    <div id="quick-category-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; padding: 16px;">
+      <div style="background: #ffffff; border-radius: 12px; width: 100%; max-width: 420px; padding: 22px; box-shadow: 0 20px 40px rgba(0,0,0,0.25);">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;">
+          <h4 style="margin: 0; font-size: 16px; font-weight: 800; color: #18181b;">Ajouter une nouvelle catégorie</h4>
+          <button type="button" id="close-quick-cat-modal" style="background: none; border: none; font-size: 20px; cursor: pointer; color: #71717a;">✕</button>
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label for="quick-cat-name-input" class="admin-label">Nom de la catégorie *</label>
+          <input type="text" id="quick-cat-name-input" class="admin-input" placeholder="ex: Bonnets, Pantalons, Vestes, Shorts...">
+          <span class="admin-help-text" style="margin-top: 6px; display: block;">Elle sera instantanément utilisable pour vos articles et visible sur la boutique.</span>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 8px;">
+          <button type="button" id="cancel-quick-cat-btn" class="admin-btn admin-btn-secondary admin-btn-sm">Annuler</button>
+          <button type="button" id="confirm-quick-cat-btn" class="admin-btn admin-btn-primary admin-btn-sm">Créer la catégorie</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script type="module" src="/src/js/admin/product-form.js"></script>

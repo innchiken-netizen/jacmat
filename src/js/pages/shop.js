@@ -9,7 +9,6 @@ export async function initShopPage() {
   const countLabel = document.getElementById("catalog-count");
   const searchInput = document.getElementById("shop-search-input");
   const sortSelect = document.getElementById("catalog-sort-select");
-  const filterChips = document.querySelectorAll(".filter-chip");
 
   const urlParams = new URLSearchParams(window.location.search);
   let activeSearch = urlParams.get("q") || "";
@@ -18,18 +17,56 @@ export async function initShopPage() {
 
   if (searchInput) searchInput.value = activeSearch;
 
-  // Sync category chip UI
-  filterChips.forEach((chip) => {
-    chip.classList.toggle("is-active", chip.dataset.category === activeCategory);
-    chip.addEventListener("click", () => {
-      activeCategory = chip.dataset.category || "all";
-      filterChips.forEach((c) => c.classList.remove("is-active"));
-      chip.classList.add("is-active");
-      applyFilters();
-    });
+  const products = await fetchProducts();
+
+  // Dynamically load categories
+  let categories = [
+    { id: "all", name: "Tous les articles" },
+    { id: "tops", name: "Tops & T-Shirts" },
+    { id: "outerwear", name: "Outerwear & Sweats" },
+    { id: "accessories", name: "Accessoires" }
+  ];
+
+  try {
+    const catRes = await fetch("/api/categories");
+    if (catRes.ok) {
+      const serverCats = await catRes.json();
+      if (Array.isArray(serverCats) && serverCats.length > 0) {
+        categories = [{ id: "all", name: "Tous les articles" }, ...serverCats];
+      }
+    }
+  } catch {}
+
+  // Also discover any extra category found on products
+  const existingCatIds = new Set(categories.map((c) => c.id || c.slug));
+  products.forEach((p) => {
+    const cat = getProductCategory(p);
+    if (cat && !existingCatIds.has(cat)) {
+      existingCatIds.add(cat);
+      categories.push({ id: cat, name: getProductCategoryLabel(p) });
+    }
   });
 
-  const products = await fetchProducts();
+  const chipsContainer = document.querySelector(".category-filter-chips");
+  function renderCategoryChips() {
+    if (!chipsContainer) return;
+    chipsContainer.innerHTML = categories
+      .map(
+        (c) =>
+          `<button type="button" class="filter-chip ${c.id === activeCategory ? "is-active" : ""}" data-category="${c.id}">${c.name}</button>`
+      )
+      .join("");
+
+    chipsContainer.querySelectorAll(".filter-chip").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        activeCategory = chip.dataset.category || "all";
+        chipsContainer.querySelectorAll(".filter-chip").forEach((c) => c.classList.remove("is-active"));
+        chip.classList.add("is-active");
+        applyFilters();
+      });
+    });
+  }
+  renderCategoryChips();
 
   function applyFilters() {
     if (!container) return;
@@ -74,7 +111,9 @@ export async function initShopPage() {
         activeSearch = "";
         activeCategory = "all";
         if (searchInput) searchInput.value = "";
-        filterChips.forEach((c) => c.classList.toggle("is-active", c.dataset.category === "all"));
+        if (chipsContainer) {
+          chipsContainer.querySelectorAll(".filter-chip").forEach((c) => c.classList.toggle("is-active", c.dataset.category === "all"));
+        }
         applyFilters();
       });
       return;

@@ -68,7 +68,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       const matchSearch =
         !query ||
         p.name.toLowerCase().includes(query) ||
-        (p.slug && p.slug.toLowerCase().includes(query));
+        (p.slug && p.slug.toLowerCase().includes(query)) ||
+        (p.sku && p.sku.toLowerCase().includes(query));
 
       // Category
       const matchCat = catVal === "all" || p.category === catVal;
@@ -102,6 +103,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         const isPublished = p.status === "published";
         const isSoldOut = Boolean(p.soldOut);
         const priceDisplay = Number(p.price).toFixed(2).replace(/\.?0+$/, "");
+        const skuBadge = p.sku
+          ? `<span style="display: inline-block; font-family: monospace; font-size: 11px; background: #f4f4f5; color: #18181b; padding: 2px 6px; border-radius: 4px; font-weight: 700; margin-right: 6px;">${p.sku}</span>`
+          : "";
 
         return `
           <tr>
@@ -110,7 +114,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             </td>
             <td>
               <strong style="color: var(--admin-text-main); font-size: 14px;">${p.name}</strong>
-              <div style="font-size: 11.5px; color: var(--admin-text-muted);">${p.slug}</div>
+              <div style="font-size: 11.5px; color: var(--admin-text-muted); margin-top: 2px;">
+                ${skuBadge}${p.slug}
+              </div>
             </td>
             <td>
               <span style="text-transform: capitalize; font-weight: 500;">${p.category || "Tops"}</span>
@@ -153,6 +159,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         const imgUrl = p.images && p.images[0] ? p.images[0] : "/placeholder.png";
         const isPublished = p.status === "published";
         const priceDisplay = Number(p.price).toFixed(2).replace(/\.?0+$/, "");
+        const skuBadge = p.sku
+          ? `<span style="font-family: monospace; font-size: 11px; font-weight: 700; background: #f4f4f5; padding: 1px 5px; border-radius: 3px; color: #18181b;">${p.sku}</span> • `
+          : "";
 
         return `
           <div class="admin-mobile-product-card">
@@ -160,7 +169,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <div class="admin-mobile-product-details">
               <div class="admin-mobile-product-title">${p.name}</div>
               <div class="admin-mobile-product-meta">
-                ${priceDisplay}$ • ${p.category} • 
+                ${skuBadge}${priceDisplay}$ • ${p.category} • 
                 <span class="admin-badge ${isPublished ? "admin-badge-published" : "admin-badge-draft"}" style="padding: 1px 6px;">
                   ${isPublished ? "Publié" : "Brouillon"}
                 </span>
