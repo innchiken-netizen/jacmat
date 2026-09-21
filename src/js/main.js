@@ -5,8 +5,12 @@ import { initHomePage } from "./pages/home.js";
 import { initShopPage } from "./pages/shop.js";
 import { initProductPage } from "./pages/product.js";
 import { initCartPage } from "./pages/cart.js";
+import { initVersionCheck } from "./store-sync.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Initialize Version & Cache Verification
+  initVersionCheck();
+
   // Initialize Global UI Components
   initHeader();
   initCartDrawer();
@@ -30,4 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
     default:
       break;
   }
+
+  // Live Auto-Refresh when catalog updates or is masked
+  window.addEventListener("jacmat:catalog-changed", () => {
+    if (page === "shop") initShopPage();
+    if (page === "home") initHomePage();
+  });
 });

@@ -1,6 +1,5 @@
 import { CONFIG } from "./config.js";
-
-let cachedProducts = null;
+import { applyLocalStoreSync } from "./store-sync.js";
 
 /**
  * Format image path to always have a leading slash
@@ -39,38 +38,8 @@ export async function fetchProducts(options = {}) {
       data = [];
     }
 
-    // Merge any recent local admin changes present in browser localStorage
-    try {
-      const localRaw = localStorage.getItem("jacmat_admin_store_v2");
-      if (localRaw) {
-        const localList = JSON.parse(localRaw);
-        if (Array.isArray(localList) && localList.length > 0) {
-          const serverMap = new Map((data || []).map((p) => [p.id || p.slug || p.name, p]));
-          const localMap = new Map(localList.map((p) => [p.id || p.slug || p.name, p]));
-
-          // Apply status and price overrides from local admin
-          data.forEach((p) => {
-            const key = p.id || p.slug || p.name;
-            const override = localMap.get(key);
-            if (override) {
-              if (override.status !== undefined) p.status = override.status;
-              if (override.price !== undefined) p.price = override.price;
-              if (override.soldOut !== undefined) p.soldOut = override.soldOut;
-            }
-          });
-
-          // Prepend newly added items that exist in local admin
-          localList.forEach((p) => {
-            const key = p.id || p.slug || p.name;
-            if (!serverMap.has(key)) {
-              data.unshift(p);
-            }
-          });
-        }
-      }
-    } catch (e) {
-      console.warn("Local store sync notice:", e);
-    }
+    // Apply live store synchronization (status overrides, newly created pieces, deleted items)
+    data = applyLocalStoreSync(data);
 
     // Normalize all image paths with leading slash
     data.forEach((p) => {

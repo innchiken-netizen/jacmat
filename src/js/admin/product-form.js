@@ -7,6 +7,7 @@
  */
 
 import { initAdminLayout, showAdminToast } from "./admin-layout.js";
+import { saveCreatedProduct, saveStatusOverride } from "../store-sync.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const isAuthorized = await initAdminLayout("products");
@@ -448,19 +449,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (saveRes.ok && resData.success) {
         showAdminToast(isEditMode ? "Produit mis à jour avec succès !" : "Nouveau produit créé avec succès !");
         const savedProduct = resData.product || payload;
-        try {
-          const raw = localStorage.getItem("jacmat_admin_store_v2");
-          let currentList = raw ? JSON.parse(raw) : [];
-          if (!Array.isArray(currentList)) currentList = [];
-          if (isEditMode) {
-            const idx = currentList.findIndex((p) => p.id === productId || p.slug === productId);
-            if (idx >= 0) currentList[idx] = { ...currentList[idx], ...savedProduct };
-            else currentList.unshift(savedProduct);
-          } else {
-            currentList.unshift(savedProduct);
-          }
-          localStorage.setItem("jacmat_admin_store_v2", JSON.stringify(currentList));
-        } catch {}
+        if (!savedProduct.id) {
+          savedProduct.id = productId || `prod_${savedProduct.slug || Date.now()}`;
+        }
+        saveCreatedProduct(savedProduct);
+        if (savedProduct.status) {
+          saveStatusOverride(savedProduct.id, savedProduct.status);
+          if (savedProduct.slug) saveStatusOverride(savedProduct.slug, savedProduct.status);
+        }
         setTimeout(() => {
           window.location.replace("/admin/products");
         }, 600);

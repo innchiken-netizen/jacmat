@@ -3,6 +3,7 @@
  */
 
 import { initAdminLayout, showAdminToast } from "./admin-layout.js";
+import { saveStatusOverride, saveDeletedProductId, applyLocalStoreSync } from "../store-sync.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const isAuthorized = await initAdminLayout("products");
@@ -42,12 +43,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   // 2. Load all products
   async function loadProducts() {
     try {
-      const res = await fetch("/api/admin/products");
+      const res = await fetch("/api/admin/products?v=" + Date.now(), { cache: "no-store" });
       if (!res.ok) throw new Error("Erreur de chargement");
-      allProducts = await res.json();
-      try {
-        localStorage.setItem("jacmat_admin_store_v2", JSON.stringify(allProducts));
-      } catch {}
+      const fetched = await res.json();
+      allProducts = applyLocalStoreSync(fetched);
       renderFilteredProducts();
     } catch (err) {
       tableBody.innerHTML = `
@@ -206,27 +205,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         const current = btn.dataset.current;
         const newStatus = current === "published" ? "draft" : "published";
 
-        try {
-          const res = await fetch("/api/admin/products", {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id, status: newStatus })
-          });
+        saveStatusOverride(id, newStatus);
+        const item = allProducts.find((p) => p.id === id || p.slug === id);
+        if (item) item.status = newStatus;
+        renderFilteredProducts();
+        showAdminToast(`Produit ${newStatus === "published" ? "publié" : "passé en brouillon"}`);
 
-          if (res.ok) {
-            showAdminToast(`Produit ${newStatus === "published" ? "publié" : "passé en brouillon"}`);
-            const item = allProducts.find((p) => p.id === id);
-            if (item) item.status = newStatus;
-            try {
-              localStorage.setItem("jacmat_admin_store_v2", JSON.stringify(allProducts));
-            } catch {}
-            renderFilteredProducts();
-          } else {
-            showAdminToast("Échec de la mise à jour", "error");
-          }
-        } catch {
-          showAdminToast("Erreur réseau", "error");
-        }
+        fetch("/api/admin/products", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ id, status: newStatus })
+        }).catch(() => {});
       });
     });
 
@@ -256,29 +245,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     confirmDeleteBtn.disabled = true;
     confirmDeleteBtn.textContent = "Suppression...";
 
-    try {
-      const res = await fetch(`/api/admin/products?id=${encodeURIComponent(productToDelete.id)}`, {
-        method: "DELETE"
-      });
+    saveDeletedProductId(productToDelete.id);
+    allProducts = allProducts.filter((p) => p.id !== productToDelete.id && p.slug !== productToDelete.id);
+    deleteModal.classList.remove("is-open");
+    renderFilteredProducts();
+    showAdminToast(`Le produit « ${productToDelete.name} » a été supprimé`);
 
-      if (res.ok) {
-        showAdminToast(`Le produit « ${productToDelete.name} » a été supprimé`);
-        allProducts = allProducts.filter((p) => p.id !== productToDelete.id);
-        try {
-          localStorage.setItem("jacmat_admin_store_v2", JSON.stringify(allProducts));
-        } catch {}
-        deleteModal.classList.remove("is-open");
-        renderFilteredProducts();
-      } else {
-        showAdminToast("Échec de la suppression", "error");
-      }
-    } catch {
-      showAdminToast("Erreur réseau", "error");
-    } finally {
-      confirmDeleteBtn.disabled = false;
-      confirmDeleteBtn.textContent = "Supprimer définitivement";
-      productToDelete = null;
-    }
+    fetch(`/api/admin/products?id=${encodeURIComponent(productToDelete.id)}`, {
+      method: "DELETE"
+    }).catch(() => {});
+
+    confirmDeleteBtn.disabled = false;
+    confirmDeleteBtn.textContent = "Supprimer définitivement";
+    productToDelete = null;
   });
 
   // Filter events
