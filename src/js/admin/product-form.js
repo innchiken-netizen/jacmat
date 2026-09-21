@@ -447,9 +447,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (saveRes.ok && resData.success) {
         showAdminToast(isEditMode ? "Produit mis à jour avec succès !" : "Nouveau produit créé avec succès !");
+        const savedProduct = resData.product || payload;
+        try {
+          const raw = localStorage.getItem("jacmat_admin_store_v2");
+          let currentList = raw ? JSON.parse(raw) : [];
+          if (!Array.isArray(currentList)) currentList = [];
+          if (isEditMode) {
+            const idx = currentList.findIndex((p) => p.id === productId || p.slug === productId);
+            if (idx >= 0) currentList[idx] = { ...currentList[idx], ...savedProduct };
+            else currentList.unshift(savedProduct);
+          } else {
+            currentList.unshift(savedProduct);
+          }
+          localStorage.setItem("jacmat_admin_store_v2", JSON.stringify(currentList));
+        } catch {}
         setTimeout(() => {
           window.location.replace("/admin/products");
-        }, 800);
+        }, 600);
       } else {
         showAdminToast(resData.error || "Erreur lors de l'enregistrement.", "error");
         saveTopBtn.disabled = false;

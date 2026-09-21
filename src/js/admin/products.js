@@ -45,6 +45,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       const res = await fetch("/api/admin/products");
       if (!res.ok) throw new Error("Erreur de chargement");
       allProducts = await res.json();
+      try {
+        localStorage.setItem("jacmat_admin_store_v2", JSON.stringify(allProducts));
+      } catch {}
       renderFilteredProducts();
     } catch (err) {
       tableBody.innerHTML = `
@@ -214,6 +217,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             showAdminToast(`Produit ${newStatus === "published" ? "publié" : "passé en brouillon"}`);
             const item = allProducts.find((p) => p.id === id);
             if (item) item.status = newStatus;
+            try {
+              localStorage.setItem("jacmat_admin_store_v2", JSON.stringify(allProducts));
+            } catch {}
             renderFilteredProducts();
           } else {
             showAdminToast("Échec de la mise à jour", "error");
@@ -258,6 +264,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (res.ok) {
         showAdminToast(`Le produit « ${productToDelete.name} » a été supprimé`);
         allProducts = allProducts.filter((p) => p.id !== productToDelete.id);
+        try {
+          localStorage.setItem("jacmat_admin_store_v2", JSON.stringify(allProducts));
+        } catch {}
         deleteModal.classList.remove("is-open");
         renderFilteredProducts();
       } else {

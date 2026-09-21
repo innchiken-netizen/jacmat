@@ -18,7 +18,17 @@ export async function initProductPage() {
     return;
   }
 
-  const product = products.find((p) => p.id === slug || p.slug === slug || slugify(p.name) === slug) || products[0];
+  const product = products.find((p) => p.id === slug || p.slug === slug || slugify(p.name) === slug);
+  if (!product || product.status === "draft") {
+    root.innerHTML = `
+      <div style="text-align: center; padding: 80px 20px;">
+        <h2 style="font-size: 24px; font-weight: 800;">Pièce indisponible</h2>
+        <p style="color: var(--color-muted); margin: 12px 0 24px;">Cet article n'est actuellement pas disponible à la vente.</p>
+        <a href="/shop" class="btn btn-primary">Explorer la boutique</a>
+      </div>
+    `;
+    return;
+  }
 
   document.title = `${product.name} — JACMAT STORE`;
 

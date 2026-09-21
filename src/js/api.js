@@ -11,15 +11,16 @@ export function formatImageUrl(url) {
 }
 
 /**
- * Fetch products list from JSON with caching
+ * Fetch products list from API / Store with real-time updates and strict draft filtering
  */
-export async function fetchProducts() {
-  if (cachedProducts) return cachedProducts;
-
+export async function fetchProducts(options = {}) {
   try {
     let data = null;
     try {
-      const res = await fetch(`${CONFIG.PRODUCTS_URL}?v=${Date.now()}`);
+      const res = await fetch(`${CONFIG.PRODUCTS_URL}?v=${Date.now()}`, {
+        cache: "no-store",
+        headers: { "Cache-Control": "no-cache", "Pragma": "no-cache" }
+      });
       if (res.ok) {
         data = await res.json();
       }
@@ -27,12 +28,50 @@ export async function fetchProducts() {
       // Fallback to static products.json if API is unavailable
     }
 
-    if (!data || !Array.isArray(data)) {
-      const fallbackRes = await fetch(`/products.json?v=${Date.now()}`);
-      if (!fallbackRes.ok) throw new Error(`Fallback HTTP error ${fallbackRes.status}`);
-      data = await fallbackRes.json();
+    if (!data || !Array.isArray(data) || data.length === 0) {
+      const fallbackRes = await fetch(`/products.json?v=${Date.now()}`, { cache: "no-store" });
+      if (fallbackRes.ok) {
+        data = await fallbackRes.json();
+      }
     }
-    
+
+    if (!data || !Array.isArray(data)) {
+      data = [];
+    }
+
+    // Merge any recent local admin changes present in browser localStorage
+    try {
+      const localRaw = localStorage.getItem("jacmat_admin_store_v2");
+      if (localRaw) {
+        const localList = JSON.parse(localRaw);
+        if (Array.isArray(localList) && localList.length > 0) {
+          const serverMap = new Map((data || []).map((p) => [p.id || p.slug || p.name, p]));
+          const localMap = new Map(localList.map((p) => [p.id || p.slug || p.name, p]));
+
+          // Apply status and price overrides from local admin
+          data.forEach((p) => {
+            const key = p.id || p.slug || p.name;
+            const override = localMap.get(key);
+            if (override) {
+              if (override.status !== undefined) p.status = override.status;
+              if (override.price !== undefined) p.price = override.price;
+              if (override.soldOut !== undefined) p.soldOut = override.soldOut;
+            }
+          });
+
+          // Prepend newly added items that exist in local admin
+          localList.forEach((p) => {
+            const key = p.id || p.slug || p.name;
+            if (!serverMap.has(key)) {
+              data.unshift(p);
+            }
+          });
+        }
+      }
+    } catch (e) {
+      console.warn("Local store sync notice:", e);
+    }
+
     // Normalize all image paths with leading slash
     data.forEach((p) => {
       if (Array.isArray(p.images)) {
@@ -40,8 +79,14 @@ export async function fetchProducts() {
       }
     });
 
-    cachedProducts = data;
-    return data;
+    // Unless explicitly requesting all products (admin), ONLY return published pieces to the storefront
+    if (options.includeDrafts) {
+      return data;
+    }
+
+    // Strict filter: Exclude any masked / draft piece
+    const publishedProducts = data.filter((p) => p.status !== "draft");
+    return publishedProducts;
   } catch (error) {
     console.error("Failed to load products", error);
     return [];

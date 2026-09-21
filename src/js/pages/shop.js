@@ -74,6 +74,9 @@ export async function initShopPage() {
     const query = normalizeText(activeSearch);
 
     let filtered = products.filter((product) => {
+      // Exclude masked / draft items
+      if (product.status && product.status === "draft") return false;
+
       const matchesCat = activeCategory === "all" || getProductCategory(product) === activeCategory;
       if (!query) return matchesCat;
 

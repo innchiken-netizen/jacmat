@@ -33,12 +33,19 @@ async function loadFeaturedDrops() {
     "JIC"
   ];
 
-  const featured = products
-    .filter((p) => featuredNames.includes(p.name))
-    .concat(products)
-    .slice(0, 8);
+  const publishedOnly = products.filter((p) => !p.status || p.status === "published");
+  const seenIds = new Set();
+  const topFeatured = [];
+  publishedOnly.forEach((p) => {
+    const id = p.id || p.slug || p.name;
+    if (!seenIds.has(id)) {
+      seenIds.add(id);
+      topFeatured.push(p);
+    }
+  });
 
-  container.innerHTML = featured
+  container.innerHTML = topFeatured
+    .slice(0, 8)
     .map((product) => {
       const primaryImg = product.images[0];
       const secondaryImg = product.images[1] || primaryImg;
